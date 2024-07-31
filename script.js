@@ -1,5 +1,5 @@
 const tileContainer = document.querySelector(".container");
-let tileCount = 24;
+let tileCount = 50;
 
 const createTiles = () => {
 	const tileHeight = window.innerHeight / tileCount;
@@ -25,7 +25,8 @@ const resizeTiles = () => {
 };
 
 const alterTile = (e) => {
-    
+	const tileStyle = e.target.style;
+	tileStyle.opacity -= "-0.1";
 };
 
 createTiles();
