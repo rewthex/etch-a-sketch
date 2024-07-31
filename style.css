@@ -42,22 +42,38 @@ h6 {
 	isolation: isolate;
 }
 
+.controls {
+	display: flex;
+	width: 200px;
+	height: 100px;
+	position: absolute;
+
+	z-index: 1;
+	margin-left: 50%;
+	margin-top: 2%;
+	opacity: 90%;
+}
+
+.resize {
+	flex: 1;
+	font-size: 25px;
+	margin: 20px;
+}
+
 .container {
 	width: 100%;
 	height: 100vh;
-    margin: auto;
-    background-color: aliceblue;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: stretch;
-    align-items: stretch;
-    justify-content: stretch;
-    
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: stretch;
+	align-items: stretch;
+	justify-content: stretch;
 }
 
 .tile {
-    border: 1px solid black;
-    background-color: black;
-    margin: 0;
-    opacity: 0;
+	border: 1px solid black;
+	background-color: black;
+	margin: 0;
+	opacity: 0;
 }
