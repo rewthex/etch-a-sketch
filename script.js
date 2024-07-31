@@ -7,6 +7,7 @@ const hexSymbols = "0123456789ABCDEF";
 let tileLength = 16;
 
 const createTiles = () => {
+	removeGrid();
 	const tileHeight = window.innerHeight / tileLength;
 	const tileWidth = window.innerWidth / tileLength;
 	const tileStyle = styleSelection.value;
@@ -60,6 +61,8 @@ const resizeGrid = () => {
 };
 
 resizeButton.addEventListener("click", resizeGrid);
+styleSelection.addEventListener("change", createTiles)
+
 
 window.onload = createTiles;
 window.onresize = resizeTiles;
