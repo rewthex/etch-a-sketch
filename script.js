@@ -10,14 +10,11 @@ const createTiles = () => {
 	removeGrid();
 	const tileHeight = window.innerHeight / tileLength;
 	const tileWidth = window.innerWidth / tileLength;
-	const tileStyle = styleSelection.value;
 	for (let i = 1; i <= tileLength * tileLength; i++) {
 		const tile = document.createElement("div");
 		tile.classList.add("tile");
 		tile.style.width = `${tileWidth}px`;
 		tile.style.height = `${tileHeight}px`;
-		tile.style.backgroundColor =
-			tileStyle === "classic" ? "black" : generateRandomColor();
 		tile.addEventListener("mouseenter", alterTile);
 		tileContainer.appendChild(tile);
 	}
@@ -35,7 +32,13 @@ const resizeTiles = () => {
 
 const alterTile = (e) => {
 	const tileStyle = e.target.style;
-	tileStyle.opacity -= "-0.2";
+	if (styleSelection.value === "classic") {
+		tileStyle.opacity -= "-0.2";
+	} else {
+		tileStyle.backgroundColor = generateRandomColor()
+		tileStyle.opacity = 1;
+	}
+
 };
 
 const generateRandomColor = () => {
@@ -62,7 +65,6 @@ const resizeGrid = () => {
 
 resizeButton.addEventListener("click", resizeGrid);
 styleSelection.addEventListener("change", createTiles)
-
 
 window.onload = createTiles;
 window.onresize = resizeTiles;
